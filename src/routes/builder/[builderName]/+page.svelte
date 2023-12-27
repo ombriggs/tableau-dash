@@ -1,14 +1,22 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+
 	export let data;
+
+	onMount(() => {
+		console.log($page.data);
+	});
 </script>
 
+<!-- we want to check if a user is logged in here, else we redirect to login page -->
 <div class="flex flex-col gap-8">
 	<div class="flex items-center justify-between px-32 pt-4 text-white">
 		<div class="capitalize text-6xl font-bold">{data.builderName} homes</div>
 		<div class="flex gap-4">
 			<div class="text-xl font-bold">Switch to...</div>
-			<button class="p-4 bg-eko-orange rounded-lg text-lg font-bold"
-				>Construction Spec Dashboard</button
+			<button class="p-4 bg-eko-orange rounded-lg text-lg font-bold">
+				Construction Spec Dashboard</button
 			>
 			<button class="p-4 bg-eko-orange rounded-lg text-lg font-bold">Meritage Home Overview</button>
 		</div>
